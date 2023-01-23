@@ -1,0 +1,5 @@
+{
+    "TEST_URL": "https://jira.ivorreic.com/project/board",
+    "CaptureVideo":"true",
+    "Browser":"chromium"
+}

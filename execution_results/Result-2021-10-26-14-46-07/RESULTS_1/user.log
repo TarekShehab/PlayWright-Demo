@@ -1,0 +1,21 @@
+Login delay is 5
+Starting transaction: Navigation to to the application dashboard
+Ending transaction : Navigation to to the application dashboard with Status: Pass
+Transaction : Navigation to to the application dashboard Transaction Time in secs:10.0633
+Starting transaction: Closing The Browser after each Scenarion
+Ending transaction : Closing The Browser after each Scenarion with Status: Pass
+Transaction : Closing The Browser after each Scenarion Transaction Time in secs:1.2676
+Closed ...
+Login delay is 5
+Starting transaction: Navigation to to the application dashboard
+Ending transaction : Navigation to to the application dashboard with Status: Pass
+Transaction : Navigation to to the application dashboard Transaction Time in secs:10.0376
+Starting transaction: Closing The Browser after each Scenarion
+Ending transaction : Closing The Browser after each Scenarion with Status: Pass
+Transaction : Closing The Browser after each Scenarion Transaction Time in secs:1.2227
+Closed ...
+Login delay is 5
+Starting transaction: Navigation to to the application dashboard
+Ending transaction : Navigation to to the application dashboard with Status: Pass
+Transaction : Navigation to to the application dashboard Transaction Time in secs:10.0386
+Starting transaction: Closing The Browser after each Scenarion

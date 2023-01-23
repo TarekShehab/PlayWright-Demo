@@ -1,0 +1,7 @@
+Login delay is 5
+Starting transaction: Navigation to to the application dashboard
+Ending transaction : Navigation to to the application dashboard with Status: Pass
+Transaction : Navigation to to the application dashboard Transaction Time in secs:11.4636
+Step failed - capturing screen
+./execution_results/Result-2022-01-24-16-19-26/RESULTS_1/2022-01-24 4-01-26_Screenshot.jpg
+Starting transaction: Closing The Browser after each Scenarion

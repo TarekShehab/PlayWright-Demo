@@ -1,0 +1,160 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "framework-overview-create-and-delete;008-create-issue,-add,edit-and-delete-comment",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "008 Create Issue, Add,Edit and delete comment",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am logged in to the application",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 25715000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I click on create an Issue button",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 940000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Issuetype",
+                      "Reporter",
+                      "Assignee",
+                      "Priority",
+                      "Summary",
+                      "Description"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Bug",
+                      "Baby Yoda",
+                      "Pickle Rick",
+                      "High",
+                      "FrameworkIntro",
+                      "This issue is for sceanrio 8"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I select the issue properties from the create issue popup",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:30"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40609000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Summary"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "FrameworkIntro"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "The issue appeares on the board with the same summary",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:43"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1038000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Summary"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "FrameworkIntro"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I search for the created issue with summary name",
+            "match": {
+              "location": "features\\steps\\StepDefinitions2.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1607000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "framework-overview-create-and-delete",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Framework overview create and delete",
+    "tags": [],
+    "uri": "features\\Test8_BDD.feature"
+  }
+]

@@ -1,0 +1,21 @@
+Login delay is 5
+Starting transaction: Navigation to to the application dashboard
+Ending transaction : Navigation to to the application dashboard with Status: Pass
+Transaction : Navigation to to the application dashboard Transaction Time in secs:13.6581
+Starting transaction: Closing The Browser after each Scenarion
+Ending transaction : Closing The Browser after each Scenarion with Status: Pass
+Transaction : Closing The Browser after each Scenarion Transaction Time in secs:5.2426
+Closed ...
+Login delay is 5
+Step failed - capturing screen
+./execution_results/Result-2021-11-04-13-47-38/RESULTS_1/2021-11-04 1-11-43_Screenshot.jpg
+Starting transaction: Closing The Browser after each Scenarion
+Screenshot error: Error: page.screenshot: Target page, context or browser has been closed
+Ending transaction : Closing The Browser after each Scenarion with Status: Pass
+Transaction : Closing The Browser after each Scenarion Transaction Time in secs:5.2562
+Closed ...
+Login delay is 5
+Step failed - capturing screen
+./execution_results/Result-2021-11-04-13-47-38/RESULTS_1/2021-11-04 1-11-56_Screenshot.jpg
+Starting transaction: Closing The Browser after each Scenarion
+Screenshot error: Error: page.screenshot: Target page, context or browser has been closed

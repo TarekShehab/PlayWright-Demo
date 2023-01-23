@@ -1,0 +1,20 @@
+Login delay is 5
+Starting transaction: Navigation to to the application dashboard
+Step failed - capturing screen
+./execution_results/Result-2021-11-04-13-39-35/RESULTS_1/2021-11-04 1-11-51_Screenshot.jpg
+Starting transaction: Closing The Browser after each Scenarion
+Step failed - capturing screen
+./execution_results/Result-2021-11-04-13-39-35/RESULTS_1/2021-11-04 1-11-52_Screenshot.jpg
+Starting transaction: Closing The Browser after each Scenarion
+Ending transaction : Closing The Browser after each Scenarion with Status: Pass
+Transaction : Closing The Browser after each Scenarion Transaction Time in secs:1.0113
+Closed ...
+Ending transaction : Closing The Browser after each Scenarion with Status: Pass
+Transaction : Closing The Browser after each Scenarion Transaction Time in secs:1.1143
+Closed ...
+Login delay is 5
+Login delay is 5
+Starting transaction: Navigation to to the application dashboard
+Step failed - capturing screen
+./execution_results/Result-2021-11-04-13-39-35/RESULTS_1/2021-11-04 1-11-09_Screenshot.jpg
+Starting transaction: Closing The Browser after each Scenarion
