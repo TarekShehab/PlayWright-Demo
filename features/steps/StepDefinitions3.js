@@ -36,7 +36,7 @@ When('I change some of project settings such as',async(ParameterData) =>{
     await DoIteration.ProjectSettingsLib.InsertDataInSettings(DoIteration)
 });
 
-Then('The project name and cotegory are changed above on the left hand side with the same modifications',async()=>{
+Then('The project name and category are changed above on the left hand side with the same modifications',async()=>{
 
     let actualResult = await DoIteration.HomepageLib.VerifyProjectName(DoIteration);
     assert.equal(actualResult,DoIteration.name)

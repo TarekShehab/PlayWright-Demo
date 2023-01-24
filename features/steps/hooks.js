@@ -45,7 +45,7 @@ Before(() => {
 
 AfterStep(function ({
   result
-}) {
+  }) {
 
   console.log("AfterStep called")
   console.log(result.status)
