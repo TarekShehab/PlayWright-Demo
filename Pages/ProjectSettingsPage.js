@@ -9,13 +9,14 @@ class ProjectSettingsPage
         this.page = page;
     }
 
-
-
     projectDetailsText = 'h1:has-text("Project Details")';
     categoryDropDownButton = '[data-testid="select:category"]';
     nameText = 'input[name="name"]';
     saveChangesButton = 'button:has-text("Save changes")';
 
+    //New Locators
+    tabsLocator = "div.heSyuF" //Containing divs
+    notImplementedDivsLocator = "div.cGkyhG"
 
     async VerifyText()
     {
@@ -34,6 +35,21 @@ class ProjectSettingsPage
         await this.page.click(this.saveChangesButton,{timeout: 10000},{visible: true});
     }
 
+    // New methods
+
+    // Verfy all the tabs are not implemented
+    async VerifyNotImplemented()
+    {
+        // Get all the divs inside the tabs
+        let tabs = await this.page.$$(notImplementedDivsLocator)
+
+        // Iterate on divs to verify text in them is "Not implemented"
+        for (let tab of tabs){
+            if (tab.textContent() !== "Not implemented")
+                return false
+        }
+        return true
+    }
 
 }
 module.exports.ProjectSettingsPage = ProjectSettingsPage;

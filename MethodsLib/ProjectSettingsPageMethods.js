@@ -18,9 +18,17 @@ class ProjectSettingsLib extends BaseClass
 
     async InsertDataInSettings(IterationInstance)
     {
-        const ProjectSettings = new ProjectSettingsPage(IterationInstance.KeepPage);
+       const ProjectSettings = new ProjectSettingsPage(IterationInstance.KeepPage);
        await ProjectSettings.SelectCategoryAndName(IterationInstance.name,IterationInstance.category);
        await this.delay(8000);
+    }
+
+    //New methods
+
+    async VerfyTabsNotImplemented(IterationInstance)
+    {
+        const ProjectSettings = new ProjectSettingsPage(IterationInstance.KeepPage);
+        return await ProjectSettings.VerifyNotImplemented() 
     }
 
 }
