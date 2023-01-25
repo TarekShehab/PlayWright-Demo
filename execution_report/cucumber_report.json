@@ -1,0 +1,413 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "create-issue;001-start-this-application-and-create-an-issue-on-the-application-kanban-board",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "001 Start this application and create an issue on the application Kanban board",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am logged in to the application",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:19"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 16633000000,
+              "error_message": "UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason \"pw-video: error capturing video: ffmpeg exited with code 1: Error initializing output stream 0:0 -- Error while opening encoder for output stream #0:0 - maybe incorrect parameters such as bit_rate, rate, width or height\nConversion failed!\n\"."
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I click on create an Issue button",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:25"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Issuetype",
+                      "Reporter",
+                      "Assignee",
+                      "Priority",
+                      "Summary",
+                      "Description"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Story",
+                      "Baby Yoda",
+                      "Baby Yoda",
+                      "High",
+                      "Issue Test",
+                      "This issue is to test the functionality of Creating an Issue"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I select the issue properties from the create issue popup",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:30"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Summary"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Issue Test"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "The issue appeares on the board with the same summary",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:43"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "create-issue",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Create Issue",
+    "tags": [],
+    "uri": "features\\featureName\\Test1_BDD.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "create-issue-and-search-for-it;002-search-for-the-created-issue-on-the-application-kanban-board",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "002 Search for the created issue on the application Kanban board",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am logged in to the application",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:19"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 254000000,
+              "error_message": "UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason \"pw-video: error capturing video: ffmpeg exited with code 1: Error initializing output stream 0:0 -- Error while opening encoder for output stream #0:0 - maybe incorrect parameters such as bit_rate, rate, width or height\nConversion failed!\n\"."
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I click on create an Issue button",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:25"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Issuetype",
+                      "Reporter",
+                      "Assignee",
+                      "Priority",
+                      "Summary",
+                      "Description"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Bug",
+                      "Baby Yoda",
+                      "Lord Gaben",
+                      "Low",
+                      "Issue Test2",
+                      "This Test is to test the functionality of the search bar"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I select the issue properties from the create issue popup",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:30"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "summary"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Issue Test2"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I search for the created issue with summary name",
+            "match": {
+              "location": "features\\steps\\StepDefinitions2.js:18"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Summary"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Issue Test2"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "The issue appeares on the board with the same summary",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:43"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "create-issue-and-search-for-it",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Create Issue and search for it",
+    "tags": [],
+    "uri": "features\\featureName\\Test2_BDD.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "check-the-ui-functionality;003-verify-the-functionality-of-kanban-board-ui-project-settings-tab",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "003 Verify the functionality of Kanban board UI project settings tab",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am logged in to the application",
+            "match": {
+              "location": "features\\steps\\StepDefinitions1.js:19"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 18431000000,
+              "error_message": "UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason \"pw-video: error capturing video: ffmpeg exited with code 1: Error initializing output stream 0:0 -- Error while opening encoder for output stream #0:0 - maybe incorrect parameters such as bit_rate, rate, width or height\nConversion failed!\n\"."
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I click on the project settings tab",
+            "match": {
+              "location": "features\\steps\\StepDefinitions3.js:19"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I can see 'Project Details' text appearing on the screen",
+            "match": {
+              "location": "features\\steps\\StepDefinitions3.js:25"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "Name",
+                      "ProjectCategory"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "Playwright Project",
+                      "Business"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I change some of project settings such as",
+            "match": {
+              "location": "features\\steps\\StepDefinitions3.js:32"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "The project name and category are changed above on the left hand side with the same modifications",
+            "match": {
+              "location": "features\\steps\\StepDefinitions3.js:39"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2000000
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "check-the-ui-functionality",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Check The UI Functionality",
+    "tags": [],
+    "uri": "features\\featureName\\Test3_BDD .feature"
+  }
+]
