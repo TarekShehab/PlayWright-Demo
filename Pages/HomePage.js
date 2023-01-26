@@ -15,6 +15,9 @@ class HomePage
     projectName = '//*[@class="sc-feJyhm jwrhXI"]';
     projectCategory = '//*[@class="sc-iELTvK fFTIzJ"]'; 
 
+    // New Locators
+    SummariesLocator = 'p'
+
     async ClickOnTheIssueCreated()
     {
         await this.page.waitForSelector(this.TheCreatedIssueLocator,{timeout: 10000},{visible: true});
@@ -56,6 +59,17 @@ class HomePage
         await this.page.waitForSelector(this.searchbarLocator,{timeout: 10000},{visible: true});
         await this.page.click(this.searchbarLocator);
         await this.page.fill(this.searchbarLocator,name);
+    }
+
+    // New Methods
+
+    async getAllSummaries()
+    {
+        let summariesParagraphs = await this.page.waitForSelector(this.SummariesLocator,{timeout: 10000},{visible: true});
+        let summaries = summariesParagraphs.map(p => {
+            await this.page.innerText(p)
+        })
+        return summaries
     }
 }
 module.exports.HomePage = HomePage;

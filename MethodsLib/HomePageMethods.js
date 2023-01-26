@@ -48,5 +48,13 @@ class HomePageLib extends BaseClass
         await homepage.TypeIssueNameonSearch(IterationInstance.Summary);
         await this.delay(1000);
     }
+
+    // New Methods
+
+    async getBoardSummaries(IterationInstance) {
+        const homepage = new HomePage(IterationInstance.KeepPage);
+        let summaries = await homepage.getAllSummaries
+        return summaries
+    }
 }
 module.exports.HomePageLib = HomePageLib

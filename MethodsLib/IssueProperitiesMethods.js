@@ -8,5 +8,17 @@ class IssueProperitiesLib extends BaseClass
         super();
     }
 
+    // New
+
+    async getIssueSummary(IterationInstance) {
+        const IssuePropsPage = new IssueProperitiesPage(IterationInstance.KeepPage);
+        return await IssuePropsPage.getSummary(IterationInstance);
+    }
+
+    async deleteIssue(IterationInstance) {
+        const IssuePropsPage = new IssueProperitiesPage(IterationInstance.KeepPage);
+        await IssuePropsPage.clickDelete(IterationInstance);
+        await IssuePropsPage.clickConfirmDelete(IterationInstance);
+    }
 }
 module.exports.IssueProperitiesLib = IssueProperitiesLib;
