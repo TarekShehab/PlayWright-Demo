@@ -35,7 +35,7 @@ class ProjectSettingsPage
         await this.page.click(this.saveChangesButton,{timeout: 10000},{visible: true});
     }
 
-    // New methods
+    // New Methods
 
     // Verfy all the tabs are not implemented
     async VerifyNotImplemented()

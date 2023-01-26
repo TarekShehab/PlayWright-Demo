@@ -23,7 +23,7 @@ class ProjectSettingsLib extends BaseClass
        await this.delay(8000);
     }
 
-    //New methods
+    //New Methods
 
     async VerfyTabsNotImplemented(IterationInstance)
     {
