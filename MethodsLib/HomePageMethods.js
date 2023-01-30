@@ -53,8 +53,14 @@ class HomePageLib extends BaseClass
 
     async getBoardSummaries(IterationInstance) {
         const homepage = new HomePage(IterationInstance.KeepPage);
-        let summaries = await homepage.getAllSummaries
-        return summaries
+        const summaries = await homepage.getAllSummaries;
+        return summaries;
+    }
+
+    async getFirstIssueSummary(IterationInstance, column) {
+        const homepage = new HomePage(IterationInstance.KeepPage);
+        const firstSummary = await homepage.getFristSummary(column);
+        return firstSummary;
     }
 }
 module.exports.HomePageLib = HomePageLib

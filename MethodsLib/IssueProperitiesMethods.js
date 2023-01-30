@@ -8,7 +8,7 @@ class IssueProperitiesLib extends BaseClass
         super();
     }
 
-    // New
+    // New Methods
 
     async getIssueSummary(IterationInstance) {
         const IssuePropsPage = new IssueProperitiesPage(IterationInstance.KeepPage);
@@ -19,6 +19,12 @@ class IssueProperitiesLib extends BaseClass
         const IssuePropsPage = new IssueProperitiesPage(IterationInstance.KeepPage);
         await IssuePropsPage.clickDelete(IterationInstance);
         await IssuePropsPage.clickConfirmDelete(IterationInstance);
+    }
+
+    async changeStatus(IterationInstance, status) {
+        const IssuePropsPage = new IssueProperitiesPage(IterationInstance.KeepPage);
+        await IssuePropsPage.clickStatusDropdown(IterationInstance)
+        await IssuePropsPage.chooseStatus(IterationInstance, status)
     }
 }
 module.exports.IssueProperitiesLib = IssueProperitiesLib;

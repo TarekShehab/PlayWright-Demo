@@ -16,7 +16,13 @@ class HomePage
     projectCategory = '//*[@class="sc-iELTvK fFTIzJ"]'; 
 
     // New Locators
-    SummariesLocator = 'p'
+    
+    tasksSummariesLocator = 'p'
+    //Columns Locators
+    backlogColumn = 'div[data-rbd-droppable-id="backlog"]'
+    selectedForDevColumn = 'div[data-rbd-droppable-id="selected"]'
+    inProgressColumn = 'div[data-rbd-droppable-id="inprogress"]'
+    doneColumn = 'div[data-rbd-droppable-id="done"]'
 
     async ClickOnTheIssueCreated()
     {
@@ -65,11 +71,34 @@ class HomePage
 
     async getAllSummaries()
     {
-        let summariesParagraphs = await this.page.waitForSelector(this.SummariesLocator,{timeout: 10000},{visible: true});
+        let summariesParagraphs = await this.page.waitForSelector(this.tasksSummariesLocator,{timeout: 10000},{visible: true});
         let summaries = summariesParagraphs.map(p => {
             await this.page.innerText(p)
         })
         return summaries
+    }
+
+    // Get the summary of the first issue in a given column (when status is changes, the issue goes in the first position in the target status)
+    async getFristSummary(column)
+    {
+        let columnLocator
+        switch(column){
+            case "BACKLOG":
+                columnLocator = this.backlogColumn
+                break
+            case "SELECTED FOR DEPLOYEMET":
+                columnLocator = this.selectedForDevColumn
+                break
+            case "IN PROGRESS":
+                columnLocator = this.inProgressColumn
+                break
+            case "DONE":
+                columnLocator = this.doneColumn
+                break
+        }
+        const summaryLocator = columnLocator + ' > :nth-child(1) > div > p'
+        const summary = await this.page.innerText(summaryLocator)
+        return summary
     }
 }
 module.exports.HomePage = HomePage;
