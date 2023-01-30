@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 2000000
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 16633000000,
+              "duration": 18159000000,
               "error_message": "UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason \"pw-video: error capturing video: ffmpeg exited with code 1: Error initializing output stream 0:0 -- Error while opening encoder for output stream #0:0 - maybe incorrect parameters such as bit_rate, rate, width or height\nConversion failed!\n\"."
             }
           },
@@ -158,7 +158,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 254000000,
+              "duration": 56000000,
               "error_message": "UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason \"pw-video: error capturing video: ffmpeg exited with code 1: Error initializing output stream 0:0 -- Error while opening encoder for output stream #0:0 - maybe incorrect parameters such as bit_rate, rate, width or height\nConversion failed!\n\"."
             }
           },
@@ -274,7 +274,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 2000000
             }
           }
         ],
@@ -304,7 +304,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 2000000
             }
           },
           {
@@ -317,7 +317,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 18431000000,
+              "duration": 16930000000,
               "error_message": "UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason \"pw-video: error capturing video: ffmpeg exited with code 1: Error initializing output stream 0:0 -- Error while opening encoder for output stream #0:0 - maybe incorrect parameters such as bit_rate, rate, width or height\nConversion failed!\n\"."
             }
           },
@@ -395,7 +395,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 2000000
+              "duration": 5000000
             }
           }
         ],
@@ -408,6 +408,6 @@
     "keyword": "Feature",
     "name": "Check The UI Functionality",
     "tags": [],
-    "uri": "features\\featureName\\Test3_BDD .feature"
+    "uri": "features\\featureName\\Test3_BDD.feature"
   }
 ]

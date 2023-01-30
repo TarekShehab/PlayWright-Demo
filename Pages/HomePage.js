@@ -100,5 +100,59 @@ class HomePage
         const summary = await this.page.innerText(summaryLocator)
         return summary
     }
+
+    async getAllColumnSummaries(column)
+    {
+        let columnLocator
+        switch(column){
+            case "BACKLOG":
+                columnLocator = this.backlogColumn
+                break
+            case "SELECTED FOR DEPLOYEMET":
+                columnLocator = this.selectedForDevColumn
+                break
+            case "IN PROGRESS":
+                columnLocator = this.inProgressColumn
+                break
+            case "DONE":
+                columnLocator = this.doneColumn
+                break
+        }
+        const anhors = await this.page.$$(columnLocator + ' > a')
+        let summaries = []
+        for (let a of anchors){
+            summaries.push(a.firstChild.firstChild.text)
+        }
+        return summaries
+    }
+
+    async dragNdropIssue(issueSumary, column) {
+        let dragedIssueID
+        const issuesLocator = 'a[data-rbd-draggable-context-id="0"]'
+        let issues = await this.page.$$(issuesLocator)
+        for(let issue of issue){
+            if(issue.firstChild.firstChild.text === issueSumary)
+                dragedIssueID = issue.getAttribute('data-rbd-draggable-id')
+        }
+        let draggedIssueLocator = `a[data-rbd-draggable-id="${dragedIssueID}"]` 
+
+        let columnLocator 
+        switch(column){
+            case "BACKLOG":
+                columnLocator = this.backlogColumn
+                break
+            case "SELECTED FOR DEPLOYEMET":
+                columnLocator = this.selectedForDevColumn
+                break
+            case "IN PROGRESS":
+                columnLocator = this.inProgressColumn
+                break
+            case "DONE":
+                columnLocator = this.doneColumn
+                break
+        }
+
+        await page.locator(draggedIssueLocator).dragTo(page.locator(columnLocator));
+    }
 }
 module.exports.HomePage = HomePage;

@@ -53,7 +53,7 @@ class HomePageLib extends BaseClass
 
     async getBoardSummaries(IterationInstance) {
         const homepage = new HomePage(IterationInstance.KeepPage);
-        const summaries = await homepage.getAllSummaries;
+        const summaries = await homepage.getAllSummaries();
         return summaries;
     }
 
@@ -61,6 +61,17 @@ class HomePageLib extends BaseClass
         const homepage = new HomePage(IterationInstance.KeepPage);
         const firstSummary = await homepage.getFristSummary(column);
         return firstSummary;
+    }
+
+    async getColumnSummaries(IterationInstance, column) {
+        const homepage = new HomePage(IterationInstance.KeepPage);
+        const columnSummaries = await homepage.getAllColumnSummaries(column);
+        return columnSummaries;
+    }
+
+    async dragAndDropIssue(IterationInstance, issueSummary, column) {
+        const homepage = new HomePage(IterationInstance.KeepPage);
+        await homepage.dragNdropIssue(issueSummary, column);
     }
 }
 module.exports.HomePageLib = HomePageLib

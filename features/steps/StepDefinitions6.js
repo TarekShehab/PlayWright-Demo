@@ -19,16 +19,16 @@ setDefaultTimeout(120 * 1000);
 
 When('I change the status to {string}',async(VerifiedText) =>{
 
-   DoIteration.Text = VerifiedText;
-   await DoIteration.IssueProperitiesLib.changeStatus(DoIteration, DoIteration.Text)
+  DoIteration.Text = VerifiedText;
+  await DoIteration.IssueProperitiesLib.changeStatus(DoIteration, DoIteration.Text)
 
 });
 
 Then('The issue appers on the board under the coresponding column',async (ParameterData) =>{
 
-  let column = ParameterData.raw()[1][0]
-  let expectedSummary = ParameterData.raw()[1][1]
-  let actualSummary = await DoIteration.HomepageLib.getFirstIssueSummary(DoIteration, column)
+  const column = ParameterData.raw()[1][0]
+  const expectedSummary = ParameterData.raw()[1][1]
+  const actualSummary = await DoIteration.HomepageLib.getFirstIssueSummary(DoIteration, column)
   assert.equal(expectedSummary, actualSummary)
 
 });
