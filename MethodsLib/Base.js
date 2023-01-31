@@ -1,5 +1,6 @@
 
 class BaseClass {
+
     delay(time) {
 
         return new Promise(function (resolve) {
@@ -8,13 +9,11 @@ class BaseClass {
     }
 
     delayfixed(time) {
-
         return new Promise(function (resolve) {
             setTimeout(resolve, time)
         });
-
-
     }
 
 }
+
 module.exports.BaseClass = BaseClass;

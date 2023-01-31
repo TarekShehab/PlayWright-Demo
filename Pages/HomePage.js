@@ -1,10 +1,8 @@
 const playwright = require('playwright');
 
+class HomePage {
 
-class HomePage
-{
-    constructor(page)
-    {
+    constructor(page) {
         this.page = page;
     }
 
@@ -15,53 +13,46 @@ class HomePage
     projectName = '//*[@class="sc-feJyhm jwrhXI"]';
     projectCategory = '//*[@class="sc-iELTvK fFTIzJ"]'; 
 
-    // New Locators
+    // Added Locators
     
-    tasksSummariesLocator = 'p'
+    tasksSummariesLocator = 'p';
     //Columns Locators
-    backlogColumn = 'div[data-rbd-droppable-id="backlog"]'
-    selectedForDevColumn = 'div[data-rbd-droppable-id="selected"]'
-    inProgressColumn = 'div[data-rbd-droppable-id="inprogress"]'
-    doneColumn = 'div[data-rbd-droppable-id="done"]'
+    backlogColumn = 'div[data-rbd-droppable-id="backlog"]';
+    selectedForDevColumn = 'div[data-rbd-droppable-id="selected"]';
+    inProgressColumn = 'div[data-rbd-droppable-id="inprogress"]';
+    doneColumn = 'div[data-rbd-droppable-id="done"]';
 
-    async ClickOnTheIssueCreated()
-    {
+    async ClickOnTheIssueCreated() {
         await this.page.waitForSelector(this.TheCreatedIssueLocator,{timeout: 10000},{visible: true});
         await this.page.click(this.TheCreatedIssueLocator,{waitUntil: 'domcontentloaded'});
     }
 
-    async GetProjectName()
-    {
+    async GetProjectName() {
         await this.page.waitForSelector(this.projectName,{timeout: 10000},{visible: true});
         return await this.page.innerText(this.projectName,{waitUntil: 'domcontentloaded'});
     }
 
-    async GetProjectCategory()
-    {
+    async GetProjectCategory() {
         await this.page.waitForSelector(this.projectCategory,{timeout: 10000},{visible: true});
         return await this.page.innerText(this.projectCategory,{waitUntil: 'domcontentloaded'});
     }
 
-    async ClickProjecttSettingsTab()
-    {
+    async ClickProjecttSettingsTab() {
         await this.page.waitForSelector(this.projectSettingsTab,{timeout: 10000},{visible: true});
         await this.page.click(this.projectSettingsTab,{waitUntil: 'domcontentloaded'});
     }
     
-    async ClickOnCreateButton()
-    {
+    async ClickOnCreateButton() {
         await this.page.waitForSelector(this.createIssueButtonLocator,{timeout: 10000},{visible: true});
         await this.page.click(this.createIssueButtonLocator,{waitUntil: 'domcontentloaded'})
     }
 
-    async GetCreatedIssueName()
-    {
+    async GetCreatedIssueName() {
         await this.page.waitForSelector(this.TheCreatedIssueLocator,{timeout: 10000},{visible: true});
         return  await this.page.innerText(this.TheCreatedIssueLocator)
     }
 
-    async TypeIssueNameonSearch(name)
-    {
+    async TypeIssueNameonSearch(name) {
         await this.page.waitForSelector(this.searchbarLocator,{timeout: 10000},{visible: true});
         await this.page.click(this.searchbarLocator);
         await this.page.fill(this.searchbarLocator,name);
@@ -69,8 +60,7 @@ class HomePage
 
     // New Methods
 
-    async getAllSummaries()
-    {
+    async getAllSummaries() {
         let summariesParagraphs = await this.page.waitForSelector(this.tasksSummariesLocator,{timeout: 10000},{visible: true});
         let summaries = summariesParagraphs.map(p => {
             await this.page.innerText(p)
@@ -79,8 +69,7 @@ class HomePage
     }
 
     // Get the summary of the first issue in a given column (when status is changes, the issue goes in the first position in the target status)
-    async getFristSummary(column)
-    {
+    async getFristSummary(column) {
         let columnLocator
         switch(column){
             case "BACKLOG":
@@ -101,8 +90,7 @@ class HomePage
         return summary
     }
 
-    async getAllColumnSummaries(column)
-    {
+    async getAllColumnSummaries(column) {
         let columnLocator
         switch(column){
             case "BACKLOG":
@@ -155,4 +143,5 @@ class HomePage
         await page.locator(draggedIssueLocator).dragTo(page.locator(columnLocator));
     }
 }
+
 module.exports.HomePage = HomePage;

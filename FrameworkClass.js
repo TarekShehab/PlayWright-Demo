@@ -22,7 +22,6 @@ const ExcelLib = require('exceljs')
 class Iteration extends BaseClass {
 
     constructor(ResultIdentifier) {
-
         super();
 
         this.IsParallel = process.env.CUCUMBER_PARALLEL
@@ -35,14 +34,11 @@ class Iteration extends BaseClass {
 
         console.log("this.WorkerId is: " + this.WorkerId)
  
-        
         this.HomepageLib = new HomePageLibrary.HomePageLib(this)       
         this.HelperLibrary = new HelperLibrary.HelperLib(this)
         this.CreatIssueLib = new CreatIssueLibrary.CreateIssueLib(this)   
         this.ProjectSettingsLib = new ProjectSettingsLibrary.ProjectSettingsLib(this);
         this.IssueProperitiesLib = new IssueProperitiesLibrary.IssueProperitiesLib(this);
-
-
         
         this.VideoFails = false
         this.CaptureContentOnFail = false
@@ -53,10 +49,7 @@ class Iteration extends BaseClass {
         this.KeepVideo = 1 
     }
 
-
     async CreateUserSubFolder() {
-
-     
         this.chosen_number = this.WorkerId * 2
         await this.delayfixed(this.chosen_number * 1000);
      
@@ -65,7 +58,6 @@ class Iteration extends BaseClass {
         if (!fs.existsSync(this.userdir)) {
             fs.mkdirSync(this.userdir);
         }
-
     }
 
     IntitialiseLogging() {
@@ -74,14 +66,12 @@ class Iteration extends BaseClass {
         });
     }
 
-
     WriteLog(d) {
         console.log(d)
         this.log_file.write(d + '\r\n');
     };
 
     StartTransaction(NameOfTransaction) {
-
         this.TransactionName = NameOfTransaction
         this.TransactionDateTime = new Date()
         this.TransactionStartTime = now()
@@ -89,7 +79,6 @@ class Iteration extends BaseClass {
     }
 
     EndTransaction(NameOfTransaction, StatusOfTransaction) {
-
         this.TransactionEndTime = now()
         if (StatusOfTransaction == 'Pass') {
             this.TransactionStatus = 'Pass'
@@ -101,20 +90,15 @@ class Iteration extends BaseClass {
             this.TransactionTime = (this.TransactionEndTime - this.TransactionStartTime) / 1000;
             this.TransactionTime = this.TransactionTime.toFixed(4)
             this.WriteLog("Transaction : " + NameOfTransaction + " Transaction Time in secs:" + this.TransactionTime)
-            
         }
         this.TransactionStatus = "None"
     }
-
 
     async CaptureScreen() {
 
         this.WriteLog("Step failed - capturing screen")
 
-        if (this.CaptureContentOnFail == true) 
-        {
-        
-
+        if (this.CaptureContentOnFail == true) {
             this.WriteLog("Step failed - capturing screen")
             this.content = await DoIteration.KeepPage.content();
             this.WriteLog(this.content);     
@@ -126,7 +110,6 @@ class Iteration extends BaseClass {
         DoIteration.WriteLog(this.filedestination)
 
         try {
-
             await this.KeepPage.screenshot({
                 path: this.filedestination
             });
@@ -137,7 +120,6 @@ class Iteration extends BaseClass {
       
 
         if (this.VideoFails == true) {
-
             this.videodestination = DoIteration.userdir + "/" + this.send + "_" + "Video" + ".mp4"
 
             this.WriteLog("Video destination: " + this.videodestination)
@@ -150,44 +132,41 @@ class Iteration extends BaseClass {
                 this.WriteLog("Video capture stopped")
 
 
-            } catch (error) {
+            } 
+            catch (error) {
                 this.WriteLog("Video Capture error: " + error)
             }
         }
 
         DoIteration.delayfixed(3000)
-
     }
 
-  
-
-
     async StartUp() {
-
         await this.CreateUserSubFolder()
 
         this.IntitialiseLogging()
 
         var browser;
 
-        if(`${config.Browser}` == 'chromium')
-        {browser = await playwright.chromium.launch({headless: false, slowMo: 250, args: ['--start-maximized']});}
+        if(`${config.Browser}` == 'chromium') {
+            browser = await playwright.chromium.launch({headless: false, slowMo: 250, args: ['--start-maximized']});
+        }
  
-         //Edge
-         if(`${config.Browser}` == 'edge')
-         {browser = await playwright.chromium.launch({channel:'msedge',headless: false, slowMo: 250, args: ['--start-maximized']});}
+        //Edge
+        if(`${config.Browser}` == 'edge') {
+            browser = await playwright.chromium.launch({channel:'msedge',headless: false, slowMo: 250, args: ['--start-maximized']});
+        }
   
-         //Firefox
-         if(`${config.Browser}` == 'firefox')
-         { browser = await playwright.firefox.launch({headless:false, slowMo: 250, args: ['--start-fullscreen']});}
-         
-
+        //Firefox
+        if(`${config.Browser}` == 'firefox') {
+            browser = await playwright.firefox.launch({headless:false, slowMo: 250, args: ['--start-fullscreen']});
+        }
+        
         const bc = await browser.newContext({
             ignoreHTTPSErrors: true,
             slowMo: 250,
             args: ['--auth-server-whitelist="_"'],
         });
-
 
         this.KeepBrowser = browser;
         const page = await bc.newPage();
@@ -196,10 +175,8 @@ class Iteration extends BaseClass {
             height: 800
         });
 
-
         this.KeepPage = page;
         await this.delay(4000);
-
 
         if (this.VideoScenario == true) {
 
@@ -216,7 +193,8 @@ class Iteration extends BaseClass {
                 this.capture = await saveVideo(this.KeepPage, this.videodestination)
 
                 console.log("Video Capture Started ...")
-            } catch (error) {
+            } 
+            catch (error) {
                 console.log("Video Capture error: " + error)
             }
 
@@ -224,7 +202,6 @@ class Iteration extends BaseClass {
     }
 
     async Login() {
-
         this.chosen_number = this.WorkerId * 5
         this.WriteLog("Login delay is " + this.chosen_number)
 
@@ -244,8 +221,6 @@ class Iteration extends BaseClass {
         await this.delay(1000)
 
         this.EndTransaction("Navigation to to the application dashboard", "Pass")
-
-
     }
 
 
@@ -279,9 +254,7 @@ class Iteration extends BaseClass {
 
     }
 
-    
     async Finish() {
-        
         this.StartTransaction("Closing The Browser after each Scenarion")
 
         await this.delay(2000)
@@ -289,8 +262,8 @@ class Iteration extends BaseClass {
         this.EndTransaction("Closing The Browser after each Scenarion", "Pass")
 
         this.WriteLog("Closed ...");
+    }
 
-    
-     }
 }
+
 module.exports.Iteration = Iteration;

@@ -1,55 +1,47 @@
 const { HomePage } = require('../Pages/HomePage.js');
 const { BaseClass } = require('./Base');
 
+class HomePageLib extends BaseClass {
 
-class HomePageLib extends BaseClass
-{
-    constructor()
-    {
+    constructor() {
         super();
     }
 
-    async VerifyProjectName(IterationInstance)
-    {
+    async VerifyProjectName(IterationInstance) {
         const homepage = new HomePage(IterationInstance.KeepPage);
         return await homepage.GetProjectName(IterationInstance);
     }
 
-    async VerifyProjectCategory(IterationInstance)
-    {
+    async VerifyProjectCategory(IterationInstance) {
         const homepage = new HomePage(IterationInstance.KeepPage);
         return await homepage.GetProjectCategory(IterationInstance);
     }
 
-    async ClickProjectSettings(IterationInstance)
-    {
+    async ClickProjectSettings(IterationInstance) {
         const homepage = new HomePage(IterationInstance.KeepPage);
         await homepage.ClickProjecttSettingsTab();
     }
     
-    async ClickCreateButton(IterationInstance)
-    {
+    async ClickCreateButton(IterationInstance) {
         const homepage = new HomePage(IterationInstance.KeepPage);
         await homepage.ClickOnCreateButton();
         await this.delay(500);
     }
 
-    async VerifyIssueName(IterationInstance)
-    {
+    async VerifyIssueName(IterationInstance) {
        await IterationInstance.delay(1000);
        const homepage = new HomePage(IterationInstance.KeepPage);
        let result= await homepage.GetCreatedIssueName();
        return result;
     }
 
-    async SearchForCreatedIssue(IterationInstance)
-    {
+    async SearchForCreatedIssue(IterationInstance) {
         const homepage = new HomePage(IterationInstance.KeepPage);
         await homepage.TypeIssueNameonSearch(IterationInstance.Summary);
         await this.delay(1000);
     }
 
-    // New Methods
+    // Added Methods
 
     async getBoardSummaries(IterationInstance) {
         const homepage = new HomePage(IterationInstance.KeepPage);
@@ -74,4 +66,5 @@ class HomePageLib extends BaseClass
         await homepage.dragNdropIssue(issueSummary, column);
     }
 }
+
 module.exports.HomePageLib = HomePageLib

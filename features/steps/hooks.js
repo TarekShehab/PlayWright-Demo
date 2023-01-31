@@ -1,5 +1,7 @@
 let IterationLib = require('../../FrameworkClass');
+
 var dateFormat = require('dateformat');
+
 const {
   Given,
   When,
@@ -10,13 +12,14 @@ const {
   Before,
   After
 } = require("@cucumber/cucumber");
+
 var fs = require('fs');
+
 var {
   setDefaultTimeout
 } = require('@cucumber/cucumber');
 
 setDefaultTimeout(120 * 1000);
-
 
 BeforeAll(async () => {
   this.ResultsName = "Result-" + dateFormat(this.now, "yyyy-mm-dd-HH-MM-ss")
@@ -32,48 +35,34 @@ BeforeAll(async () => {
   DoIteration = new IterationLib.Iteration(this.ResultsName);
 
   DoIteration.ScenarioStatus = "NOT-COMPLETED"
-
 });
 
 Before(() => {
-
   console.log("Before Scenario called")
   DoIteration.ScenarioStatus = "NOT-COMPLETED"
   console.log("Status is: " + DoIteration.ScenarioStatus)
-
 });
 
-AfterStep(function ({
-  result
-  }) {
-
+AfterStep(function ({result}) {
   console.log("AfterStep called")
   console.log(result.status)
   let expectedresultStatus = "PASSED"
   let actualresultstatus = result.status
-  if((actualresultstatus.localeCompare(expectedresultStatus))!=0)
-  {
-
+  if((actualresultstatus.localeCompare(expectedresultStatus))!=0) {
     DoIteration.KeepVideo = 1
     DoIteration.FinaliseVideo()
     DoIteration.CaptureScreen()
-
   }
-
 });
 
 After(() => {
-  
   console.log("After Scenario called")
   console.log("Status is: " + DoIteration.ScenarioStatus)
   DoIteration.Finish()
- 
 });
 
 AfterAll(() => {
-
   console.log("AfterAll called")
-  if (DoIteration.NeedToClearBrowser == "True") {
+  if (DoIteration.NeedToClearBrowser === "True")
     DoIteration.Finish()
-  }
 });

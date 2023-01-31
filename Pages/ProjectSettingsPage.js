@@ -1,11 +1,8 @@
 const playwright = require('playwright');
 
+class ProjectSettingsPage {
 
-
-class ProjectSettingsPage
-{
-    constructor(page)
-    {
+    constructor(page) {
         this.page = page;
     }
 
@@ -14,18 +11,17 @@ class ProjectSettingsPage
     nameText = 'input[name="name"]';
     saveChangesButton = 'button:has-text("Save changes")';
 
-    //New Locators
-    tabsLocator = "div.heSyuF" //Containing divs
-    notImplementedDivsLocator = "div.cGkyhG"
+    //Added Locators
 
-    async VerifyText()
-    {
+    tabsLocator = "div.heSyuF"; //Containing divs
+    notImplementedDivsLocator = "div.cGkyhG";
+
+    async VerifyText() {
         await this.page.waitForSelector(this.projectDetailsText,{timeout: 10000},{visible: true});
         return await this.page.innerText(this.projectDetailsText,{waitUntil: 'domcontentloaded'})
     }
 
-    async SelectCategoryAndName(name,category)
-    {
+    async SelectCategoryAndName(name,category) {
         await this.page.waitForSelector(this.nameText,{timeout: 10000},{visible: true});
         await this.page.fill(this.nameText, `${name}`);
         await this.page.waitForSelector(this.categoryDropDownButton,{timeout: 10000},{visible: true});
@@ -35,11 +31,10 @@ class ProjectSettingsPage
         await this.page.click(this.saveChangesButton,{timeout: 10000},{visible: true});
     }
 
-    // New Methods
+    // Added Methods
 
     // Verfy all the tabs are not implemented
-    async VerifyNotImplemented()
-    {
+    async VerifyNotImplemented() {
         // Get all the divs inside the tabs
         let tabs = await this.page.$$(notImplementedDivsLocator)
 
@@ -48,8 +43,10 @@ class ProjectSettingsPage
             if (tab.textContent() !== "Not implemented")
                 return false
         }
+
         return true
     }
 
 }
+
 module.exports.ProjectSettingsPage = ProjectSettingsPage;

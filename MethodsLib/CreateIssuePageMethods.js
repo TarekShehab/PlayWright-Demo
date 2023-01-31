@@ -1,11 +1,9 @@
 const { CreateIssuePage } = require('../Pages/CreateIssuePage.js');
 const { BaseClass } = require('./Base');
 
-class CreateIssueLib extends BaseClass
-{
+class CreateIssueLib extends BaseClass {
 
-    async Create(IterationInstance)
-    {
+    async Create(IterationInstance) {
         const createissue = new CreateIssuePage(IterationInstance.KeepPage);
         await createissue.SelectIssueType(IterationInstance.Issuetype);
         await this.delay(1000);
@@ -22,5 +20,7 @@ class CreateIssueLib extends BaseClass
         await createissue.Clicksubmit();
         await this.delay(30000);
     }
+
 }
+
 module.exports.CreateIssueLib = CreateIssueLib;

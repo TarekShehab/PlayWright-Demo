@@ -17,7 +17,7 @@ Feature: Delete Issue
             | PlaywrightDemo Issue |
 
         When  I delete the issue
-        Then  The issue is no longer appears on the board
+        Then  The issue no longer appears on the board
             | Summary              |
             | PlaywrightDemo Issue |
 
